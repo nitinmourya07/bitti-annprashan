@@ -298,18 +298,27 @@
     }
 
     @media (max-width: 768px) {
-      .brother-hero { padding: 60px 16px 32px; }
-      .brother-photos { grid-template-columns: 1fr; max-width: 100%; }
-      .about-grid { grid-template-columns: 1fr; }
-      .promise-card { padding: 40px 24px; }
-      .film-frame { width: 160px; height: 220px; }
+      .brother-hero { padding: 60px 20px 32px; }
+      .brother-photos { grid-template-columns: 1fr; max-width: 380px; }
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .promise-card { padding: 40px 28px; }
+      .film-frame { width: 200px; height: 260px; }
+      .feelings-section { padding: 32px 24px; }
     }
     @media (max-width: 480px) {
-      .promise-card { padding: 24px 16px; }
-      .promise-text { font-size: 20px; }
-      .feelings-section { padding: 24px 16px; }
-      .feelings-quote { font-size: 18px; }
-      .about-item { padding: 12px; }
+      .brother-hero { padding: 48px 16px 28px; }
+      .brother-photos { max-width: 100%; }
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .about-item { padding: 12px 10px; gap: 8px; }
+      .about-icon { font-size: 20px; }
+      .about-value { font-size: 14px; }
+      .promise-card { padding: 32px 20px; }
+      .promise-text { font-size: clamp(20px, 5vw, 24px); }
+      .promise-seal { width: 48px; height: 48px; font-size: 8px; bottom: 12px; right: 12px; }
+      .feelings-section { padding: 24px 20px; }
+      .feelings-quote { font-size: clamp(18px, 4.5vw, 22px); }
+      .film-frame { width: 180px; height: 240px; }
+      .bro-photo-label { font-size: 16px; padding: 10px 12px; }
     }
   </style>
 </head>

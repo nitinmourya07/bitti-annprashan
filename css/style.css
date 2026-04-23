@@ -507,14 +507,15 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; }
   body { font-size: 15px; }
   .container { padding: 0 16px; }
   .section-padding { padding: 40px 0; }
-  .photo-circle { width: 140px; height: 140px; }
-  .nav-btn { padding: 12px 24px; font-size: 15px; }
+  .photo-circle { width: 160px; height: 160px; }
+  .nav-btn { padding: 14px 24px; font-size: 15px; }
   .nav-btn.primary { padding: 14px 28px; font-size: 16px; }
-  .shloka-box { padding: 20px 16px; margin: 24px 0; }
-  .section-header { margin-bottom: 32px; }
-  .speech-bubble { padding: 16px 20px; font-size: 16px; }
-  .ornament-box { padding: 16px; }
-  .card { padding: 20px 16px; }
+  .shloka-box { padding: 24px 20px; margin: 24px 0; }
+  .section-header { margin-bottom: 36px; }
+  .speech-bubble { padding: 20px 20px; font-size: 18px; }
+  .ornament-box { padding: 20px; }
+  .card { padding: 24px 20px; }
+  .divider { margin: 28px 0; }
 }
 
 /* ─── GLOBAL AUDIO BUTTON ──────────────────────────────── */

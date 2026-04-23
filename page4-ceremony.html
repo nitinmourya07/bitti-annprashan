@@ -198,19 +198,28 @@
     }
 
     @media (max-width: 768px) {
-      .ceremony-hero { padding: 60px 16px 32px; }
-      .ritual-timeline { padding-left: 40px; }
-      .ritual-dot { left: -38px; width: 18px; height: 18px; }
+      .ceremony-hero { padding: 60px 20px 32px; }
+      .ceremony-explain { padding: 28px 20px; }
+      .ceremony-explain p { font-size: 16px; }
+      .ritual-timeline { padding-left: 48px; }
+      .ritual-dot { left: -36px; width: 18px; height: 18px; top: 24px; }
+      .ritual-timeline::before { left: 20px; }
       .kheer-card { padding: 32px 24px; }
-      .items-grid { grid-template-columns: repeat(3, 1fr); }
+      .items-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .invitation-msg { padding: 32px 20px; }
     }
 
     @media (max-width: 480px) {
+      .ceremony-hero { padding: 48px 16px 28px; }
       .items-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .ceremony-item { padding: 16px 8px; }
-      .ritual-step { padding: 16px; margin-bottom: 24px; }
+      .ceremony-item { padding: 16px 12px; }
+      .ceremony-item .item-icon { font-size: 30px; margin-bottom: 8px; }
+      .ritual-step { padding: 16px; margin-bottom: 28px; }
+      .ritual-title { font-size: 18px; }
       .kheer-card { padding: 24px 16px; }
+      .kheer-icon { font-size: 40px; }
       .invitation-msg { padding: 24px 16px; }
+      .invitation-msg p { font-size: clamp(18px, 4.5vw, 22px); }
     }
   </style>
 </head>
