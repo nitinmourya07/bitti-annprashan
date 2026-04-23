@@ -205,32 +205,94 @@
   }
 
   // ─── SHARE FUNCTIONALITY ──────────────────────────────
+  function getShareUrl() {
+    // If hosted on GitHub Pages, use that URL. Otherwise use current origin.
+    const ghPagesUrl = 'https://nitinmourya07.github.io/bitti-annprashan/';
+    if (window.location.hostname === 'nitinmourya07.github.io') {
+      return ghPagesUrl;
+    }
+    // Fallback: construct from current location
+    const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
+    return base + 'index.html';
+  }
+
   function initShare() {
     const shareBtn = document.getElementById('share-btn');
     const copyBtn = document.getElementById('copy-link-btn');
 
     if (shareBtn) {
       shareBtn.addEventListener('click', () => {
-        const url = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/index.html');
-        const text = '🌸 Arvinanda Maurya ka Annaprashan Sanskar! Aashirwad dijiye: ';
+        const url = getShareUrl();
+        const text = '🌸 Arvinanda Maurya ka Annaprashan Sanskar! Aashirwad dijiye 🙏\n\n';
+        const fullMessage = text + url;
 
+        // Try native share first (works great on mobile)
         if (navigator.share) {
-          navigator.share({ title: 'Annaprashan — Arvinanda Maurya', text, url });
+          navigator.share({
+            title: 'अन्नप्राशन — Arvinanda Maurya',
+            text: text,
+            url: url
+          }).catch(() => {
+            // If native share fails/cancelled, open WhatsApp directly
+            window.open('https://wa.me/?text=' + encodeURIComponent(fullMessage), '_blank');
+          });
         } else {
-          window.open(`https://wa.me/?text=${encodeURIComponent(text + url)}`, '_blank');
+          // Desktop fallback: open WhatsApp Web
+          window.open('https://wa.me/?text=' + encodeURIComponent(fullMessage), '_blank');
         }
       });
     }
 
     if (copyBtn) {
       copyBtn.addEventListener('click', () => {
-        const url = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/index.html');
-        navigator.clipboard.writeText(url).then(() => {
-          copyBtn.textContent = '✅ Link Copied!';
-          setTimeout(() => { copyBtn.textContent = '🔗 Copy Link'; }, 2000);
-        });
+        const url = getShareUrl();
+
+        // Try modern clipboard API first
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(() => {
+            showCopySuccess(copyBtn);
+          }).catch(() => {
+            // Fallback if clipboard API fails
+            fallbackCopy(url, copyBtn);
+          });
+        } else {
+          // Fallback for older browsers
+          fallbackCopy(url, copyBtn);
+        }
       });
     }
+  }
+
+  function fallbackCopy(text, btn) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      showCopySuccess(btn);
+    } catch (e) {
+      alert('Link: ' + text + '\n\nIs link ko manually copy karein!');
+    }
+    document.body.removeChild(textarea);
+  }
+
+  function showCopySuccess(btn) {
+    const originalText = btn.textContent;
+    btn.textContent = '✅ Link Copied!';
+    btn.style.background = 'rgba(74, 124, 89, 0.15)';
+    btn.style.borderColor = '#4A7C59';
+    btn.style.color = '#4A7C59';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }, 2500);
   }
 
   // ─── ESCAPE HTML ──────────────────────────────────────
