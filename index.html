@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>अन्नप्राशन — Arvinanda Maurya</title>
+  <meta name="description" content="Arvinanda Maurya ka Annaprashan Sanskar — pehla kaur, pehli khushi. A celebration of her first rice ceremony."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+
+  <style>
+    /* ─── WELCOME PAGE SPECIFICS ─────────────────────── */
+    .welcome-hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #8B1A1A 0%, #5a1212 20%, #C8922A 55%, #D4622A 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .welcome-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .welcome-badge {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      padding: 8px 28px;
+      border-radius: var(--radius-full);
+      margin-bottom: 28px;
+      animation: fade-in-up 1s ease 0.2s both;
+    }
+
+    .welcome-om {
+      font-size: 56px;
+      color: var(--light-gold);
+      margin-bottom: 20px;
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+
+    .welcome-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 8vw, 80px);
+      color: var(--warm-white);
+      font-weight: 700;
+      line-height: 1.05;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.35);
+      margin-bottom: 8px;
+      animation: fade-in-up 1s ease 0.4s both;
+    }
+
+    .welcome-title .name-highlight {
+      display: block;
+      color: var(--light-gold);
+      font-style: italic;
+      font-size: 0.85em;
+    }
+
+    .welcome-hindi {
+      font-family: var(--font-hindi);
+      font-size: clamp(20px, 3vw, 30px);
+      color: rgba(255,248,231,0.75);
+      margin-bottom: 8px;
+      animation: fade-in-up 1s ease 0.6s both;
+    }
+
+    .welcome-tagline {
+      font-family: var(--font-hindi);
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255,248,231,0.5);
+      margin-bottom: 48px;
+      animation: fade-in-up 1s ease 0.7s both;
+    }
+
+    .welcome-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 48px;
+      animation: fade-in-up 1s ease 0.8s both;
+    }
+
+    .meta-item {
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .meta-item strong {
+      display: block;
+      color: var(--light-gold);
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .enter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-hindi);
+      font-size: 20px;
+      color: var(--warm-white);
+      background: rgba(255,213,128,0.15);
+      border: 2px solid rgba(255,213,128,0.5);
+      padding: 18px 48px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all var(--transition);
+      animation: fade-in-up 1s ease 1s both;
+      text-decoration: none;
+    }
+
+    .enter-btn:hover {
+      background: rgba(255,213,128,0.3);
+      border-color: var(--light-gold);
+      box-shadow: 0 0 40px rgba(255,213,128,0.3);
+      transform: translateY(-3px) scale(1.03);
+      color: white;
+    }
+
+    .enter-btn .arrow {
+      font-size: 24px;
+      transition: transform var(--transition);
+    }
+
+    .enter-btn:hover .arrow {
+      transform: translateX(6px);
+    }
+
+    /* Diyas at bottom */
+    .welcome-diyas {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: fade-in 1s ease 1.2s both;
+    }
+
+    /* Mandala watermarks */
+    .mandala-1 {
+      top: -100px;
+      right: -100px;
+      opacity: 0.08;
+    }
+
+    .mandala-2 {
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      opacity: 0.05;
+    }
+
+    @media (max-width: 768px) {
+      .welcome-hero { padding: 40px 24px; }
+      .welcome-meta { gap: 24px; }
+      .meta-item { font-size: 12px; }
+      .meta-item strong { font-size: 15px; }
+      .enter-btn { padding: 14px 36px; font-size: 18px; }
+      .welcome-diyas { bottom: 24px; }
+      .diyas-row { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ░░░ LOADING SCREEN ░░░ -->
+  <div class="loader-screen">
+    <div class="loader-om">ॐ</div>
+    <div class="loader-text">Loading blessings...</div>
+  </div>
+
+
+
+  <!-- ░░░ PAGE TRANSITION OVERLAY ░░░ -->
+  <div class="page-transition-overlay"></div>
+
+  <!-- ░░░ WELCOME HERO ░░░ -->
+  <main class="welcome-hero">
+    <!-- Decorative mandalas -->
+    <div class="mandala-bg mandala-1"></div>
+    <div class="mandala-bg mandala-2"></div>
+
+    <!-- Rangoli corners -->
+    <div class="rangoli-corner top-left"></div>
+    <div class="rangoli-corner top-right"></div>
+    <div class="rangoli-corner bottom-left"></div>
+    <div class="rangoli-corner bottom-right"></div>
+
+    <div class="welcome-content">
+      <div class="welcome-badge">✦ अन्नप्राशन संस्कार ✦</div>
+
+      <div class="welcome-om">ॐ</div>
+
+      <h1 class="welcome-title">
+        Annaprashan
+        <span class="name-highlight">Arvinanda Maurya</span>
+      </h1>
+
+      <p class="welcome-hindi">अन्नप्राशन संस्कार — पहला अन्न</p>
+      <p class="welcome-tagline">"पहला कौर, पहली खुशी — अर्विनंदा का अन्नप्राशन संस्कार"</p>
+
+      <div class="welcome-meta">
+        <div class="meta-item">
+          <strong>📅 Date</strong>
+          <span style="font-family:var(--font-handwritten); font-size:32px; color:var(--light-gold);">24-04-2026</span>
+        </div>
+        <div class="meta-item">
+          <strong>🕐 Time</strong>
+          <span style="font-family:var(--font-handwritten); font-size:32px; color:var(--light-gold);">Subha 9 am</span>
+        </div>
+      </div>
+
+      <a href="page2-baby.html" class="enter-btn" data-page="page2-baby.html">
+        अंदर आइए — Enter
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- Diyas at bottom -->
+    <div class="welcome-diyas">
+      <div class="diyas-row">
+        <div class="diya">
+          <div class="diya-flame"></div>
+          <div class="diya-base"></div>
+        </div>
+        <div class="diya">
+          <div class="diya-flame"></div>
+          <div class="diya-base"></div>
+        </div>
+        <div class="diya">
+          <div class="diya-flame"></div>
+          <div class="diya-base"></div>
+        </div>
+        <div class="diya">
+          <div class="diya-flame"></div>
+          <div class="diya-base"></div>
+        </div>
+        <div class="diya">
+          <div class="diya-flame"></div>
+          <div class="diya-base"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/navigation.js"></script>
+</body>
+</html>

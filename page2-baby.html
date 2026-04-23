@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Little Princess — Arvinanda Maurya</title>
+  <meta name="description" content="Meet Arvinanda Maurya — our little princess, the light of our home." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&family=Caveat:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/gallery.css" />
+
+  <style>
+    .baby-page {
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Hero section */
+    .baby-hero {
+      text-align: center;
+      padding: 80px 32px 40px;
+      position: relative;
+      background: linear-gradient(180deg, rgba(139, 26, 26, 0.04) 0%, transparent 60%);
+    }
+
+    .baby-photo-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 32px;
+    }
+
+    /* Floral ring around photo */
+    .photo-ring {
+      position: absolute;
+      inset: -16px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      background:
+        conic-gradient(from 0deg, var(--saffron), var(--gold), var(--marigold), var(--pink-lotus), var(--gold), var(--saffron)) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: rotate-slow 20s linear infinite;
+    }
+
+    .baby-name-section {
+      margin-bottom: 40px;
+    }
+
+    .baby-name-hindi {
+      font-family: var(--font-hindi);
+      font-size: clamp(28px, 5vw, 44px);
+      color: var(--deep-red);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .baby-name-english {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 28px);
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: var(--ivory);
+      border: 1px solid rgba(200, 146, 42, 0.2);
+      border-radius: var(--radius-md);
+      min-width: 120px;
+      transition: transform var(--transition);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-4px);
+    }
+
+    .stat-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--saffron);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--deep-red);
+      font-weight: 700;
+    }
+
+    /* Birth story */
+    .birth-story {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(212, 98, 42, 0.06), rgba(200, 146, 42, 0.08));
+      border: 1px solid rgba(200, 146, 42, 0.2);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+
+    .birth-story-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .birth-story p {
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* Parents section */
+    .parents-section {
+      padding: 60px 0;
+    }
+
+    .parents-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      .parents-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .parent-message {
+      position: relative;
+    }
+
+    .parent-message .speech-bubble {
+      height: 100%;
+    }
+
+    /* Navigation */
+    .baby-nav {
+      padding: 40px 0 60px;
+    }
+
+    @media (max-width: 768px) {
+      .baby-hero {
+        padding: 60px 20px 32px;
+      }
+
+      .stats-row {
+        gap: 16px;
+      }
+
+      .stat-item {
+        min-width: 100px;
+        padding: 16px;
+      }
+
+      .birth-story {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Loading screen -->
+  <div class="loader-screen">
+    <div class="loader-om">👶</div>
+    <div class="loader-text">Pehli kahani khul rahi hai...</div>
+  </div>
+
+  <div class="page-transition-overlay"></div>
+
+  <main class="baby-page page">
+
+    <!-- ─── HERO ────────────────────────────────────── -->
+    <section class="baby-hero">
+      <div class="mandala-bg" style="top:-120px; right:-120px; opacity:0.06;"></div>
+
+      <div class="baby-photo-wrap reveal">
+        <div class="photo-ring"></div>
+        <div class="photo-circle">
+          <img src="images/baby/main image.jpeg" alt="Arvinanda Maurya" />
+        </div>
+      </div>
+
+      <div class="baby-name-section reveal">
+        <div class="baby-name-hindi">अर्विनंदा मौर्य</div>
+        <div class="baby-name-english">Arvinanda Maurya</div>
+      </div>
+
+      <div class="divider reveal">
+        <span class="divider-icon">🌸</span>
+      </div>
+    </section>
+
+    <!-- ─── BIRTH STORY ─────────────────────────────── -->
+    <section class="container section-padding">
+      <div class="birth-story reveal">
+        <div class="birth-story-icon">✨</div>
+        <p>
+          Jab se Arvinanda ka janam hua hai, tab se ghar roshan hai.<br />
+          Choti si jaan, bade sapne — humari gudiya, humari duniya. 🌸<br />
+          <em style="color: var(--muted); font-size: 16px;">Aaj uska pehla annaprashan hai — pehla kaur, pehli
+            khushi!</em>
+        </p>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row reveal">
+        <div class="stat-item">
+          <div class="stat-icon">🎂</div>
+          <div class="stat-label">Celebration</div>
+          <div class="stat-value">Annaprashan</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">💕</div>
+          <div class="stat-label">Nickname</div>
+          <div class="stat-value">Bitti</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌟</div>
+          <div class="stat-label">Personality</div>
+          <div class="stat-value">Sunshine</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">👦</div>
+          <div class="stat-label">Big Brother</div>
+          <div class="stat-value">Arthnanda</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PARENTS MESSAGES ─────────────────────────── -->
+    <section class="container parents-section">
+      <div class="section-header reveal">
+        <span class="section-label">With Love</span>
+        <h2 class="section-title">Maa-Papa Ki <em>Baatein</em></h2>
+      </div>
+
+      <div class="parents-grid">
+        <div class="parent-message reveal">
+          <div class="speech-bubble">
+            "Tum hamare jeevan ka sabse anmol uphaar ho. Tumhara yeh pratham anna grahan, hamare netron mein anand ke ashru le aaya. Tum sadaiva hamari pyari bitiya hi rehna. ❤️"
+          </div>
+          <div class="speech-label">— Maa ka sneh 💐</div>
+        </div>
+
+        <div class="parent-message reveal">
+          <div class="speech-bubble">
+            "Meri choti rajkumari — is sansar mein sabse adhik prasann main us din tha jab tumhara aagman hua. Aaj tumhare annaprashan ke shubh avsar par, hriday se yahi kaamna hai ki tum sadaiva muskurati raho. 🌟"
+          </div>
+          <div class="speech-label">— Papa ka aashirwad 🙏</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SHLOKA ───────────────────────────────────── -->
+    <section class="container">
+      <div class="shloka-box reveal">
+        <div class="shloka-sanskrit">
+          पुत्री रत्नं हि परमं, तस्या गृहे सदा शुभम्।
+        </div>
+        <div class="shloka-meaning">
+          "Putri ek anmol ratna hai — jiske ghar mein wo ho, sadaa shubh hota hai."
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── BABY MINI GALLERY ──────────────────────── -->
+    <section class="container section-padding" style="padding-top:0;">
+      <div class="section-header reveal">
+        <span class="section-label">Sweet Moments</span>
+        <h2 class="section-title">Bitti Ki <em>Tasveerein</em></h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.55 PM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.56 PM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item polaroid">
+          <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.57 PM (1).jpeg" alt="Baby Photo" />
+          <span class="polaroid-caption">Khushi 💕</span>
+        </div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.57 PM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.58 PM (1).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item polaroid">
+          <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.58 PM.jpeg" alt="Baby Photo" />
+          <span class="polaroid-caption">Muskaan ✨</span>
+        </div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.59 PM (1).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.59 PM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.00 PM (1).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item polaroid">
+          <img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.00 PM.jpeg" alt="Baby Photo" />
+          <span class="polaroid-caption">Nazar na lage 🧿</span>
+        </div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.01 PM (1).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.01 PM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.41 AM (1).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.41 AM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item polaroid">
+          <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.42 AM.jpeg" alt="Baby Photo" />
+          <span class="polaroid-caption">Pari 🌸</span>
+        </div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.43 AM (1).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.43 AM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.44 AM (1).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.44 AM (2).jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.44 AM.jpeg" alt="Baby Photo" /></div>
+        <div class="gallery-item polaroid">
+          <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.45 AM (1).jpeg" alt="Baby Photo" />
+          <span class="polaroid-caption">Cute 🌷</span>
+        </div>
+        <div class="gallery-item"><img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.45 AM (2).jpeg" alt="Baby Photo" /></div>
+      </div>
+    </section>
+
+    <!-- ─── NAVIGATION ──────────────────────────────── -->
+    <div class="container baby-nav">
+      <div class="nav-buttons">
+        <a href="index.html" class="nav-btn" data-page="index.html">
+          ← Wapas
+        </a>
+        <a href="page3-brother.html" class="nav-btn primary" data-page="page3-brother.html">
+          Bhaiya ke baare mein jaanein →
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-om">🌸 ॐ 🌸</div>
+    <p><strong>Arvinanda Maurya</strong> ka Annaprashan Sanskar</p>
+    <p class="footer-shloka">"सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः"</p>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+</body>
+
+</html>

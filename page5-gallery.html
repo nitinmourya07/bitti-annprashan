@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yaadein — Photo Gallery</title>
+  <meta name="description" content="Photo gallery of Arvinanda Maurya's Annaprashan celebration — puja, family, bhai-didi moments."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/gallery.css"/>
+
+  <style>
+    .gallery-page { min-height: 100vh; }
+
+    .gallery-hero-section {
+      text-align: center;
+      padding: 80px 32px 48px;
+      background: linear-gradient(180deg, rgba(200,146,42,0.06) 0%, transparent 50%);
+      position: relative;
+    }
+
+    .gallery-page-icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Different heights for masonry effect */
+    .gallery-placeholder.h-short  { min-height: 160px; }
+    .gallery-placeholder.h-medium { min-height: 220px; }
+    .gallery-placeholder.h-tall   { min-height: 300px; }
+
+    @media (max-width: 768px) {
+      .gallery-hero-section { padding: 60px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader-screen">
+    <div class="loader-om">📸</div>
+    <div class="loader-text">Yaadein load ho rahi hain...</div>
+  </div>
+
+  <div class="page-transition-overlay"></div>
+
+  <main class="gallery-page page">
+
+    <!-- ─── HERO ────────────────────────────────────── -->
+    <section class="gallery-hero-section">
+      <div class="mandala-bg" style="top:-120px; left:-120px; opacity:0.04;"></div>
+      <div class="gallery-page-icon reveal">📸</div>
+      <div class="reveal">
+        <span class="section-label">✦ Memories ✦</span>
+        <h1 class="section-title" style="margin-bottom:8px;">Photo <em>Gallery</em></h1>
+        <p class="section-subtitle hindi-text" style="font-size:20px;">यादें — Yaadein</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ─── HERO PHOTO ─────────────────────────────── -->
+      <section class="section-padding" style="padding-bottom:32px;">
+        <div class="gallery-hero reveal">
+          <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+            <img src="images/baby/main image.jpeg" alt="The Moment" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          </div>
+          <div class="gallery-hero-label">✦ THE MOMENT ✦</div>
+        </div>
+      </section>
+
+      <!-- ─── TABS ───────────────────────────────────── -->
+      <section>
+        <p style="text-align:center; color:var(--muted); font-size:16px; margin-bottom:16px; font-style:italic;">📸 Photo dekhne ke liye bar-bar in sections par click karein 👇</p>
+        <div class="gallery-tabs reveal">
+          <button class="gallery-tab active" data-category="dada">👴 Dada</button>
+          <button class="gallery-tab" data-category="dadi">👵 Dadi</button>
+          <button class="gallery-tab" data-category="nani">👵 Nani</button>
+          <button class="gallery-tab" data-category="family">👨‍👩‍👧‍👦 Family</button>
+          <button class="gallery-tab" data-category="bhai-choti-bitti">👦👶 Bhai & Choti Bitti</button>
+          <button class="gallery-tab" data-category="brother">👦 Brother</button>
+          <button class="gallery-tab" data-category="baby">👶 Baby</button>
+        </div>
+      </section>
+
+      <!-- ─── GALLERY GRID ───────────────────────────── -->
+      <section class="section-padding" style="padding-top:0;">
+        <div class="gallery-grid reveal">
+
+          <!-- Dada -->
+          <div class="gallery-item" data-category="dada">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/dada/WhatsApp Image 2026-04-24 at 12.56.44 AM (1).jpeg" alt="Dada ke saath" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item polaroid" data-category="dada">
+            <div class="gallery-placeholder h-short" style="padding:0; overflow:hidden;">
+              <img src="images/dada/WhatsApp Image 2026-04-24 at 12.56.44 AM.jpeg" alt="Dada ka Pyaar" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Aashirwad 🌸</span>
+          </div>
+          <div class="gallery-item" data-category="dada">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/dada/WhatsApp Image 2026-04-24 at 2.27.45 AM.jpeg" alt="Dada New" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+
+          <!-- Dadi -->
+          <div class="gallery-item polaroid" data-category="dadi">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/dadi/WhatsApp Image 2026-04-24 at 2.27.42 AM (1).jpeg" alt="Dadi Ka Pyaar" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Pyaari Dadi 💕</span>
+          </div>
+          <div class="gallery-item" data-category="dadi">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/dadi/WhatsApp Image 2026-04-24 at 2.27.42 AM.jpeg" alt="Dadi ke saath" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+
+          <!-- Nani -->
+          <div class="gallery-item polaroid" data-category="nani">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/Nani/WhatsApp Image 2026-04-24 at 12.56.46 AM.jpeg" alt="Nani ke saath" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Pyaari Nani 💕</span>
+          </div>
+
+          <!-- Family -->
+          <div class="gallery-item" data-category="family">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/family/WhatsApp Image 2026-04-23 at 2.21.33 PM.jpeg" alt="Family Photo 1" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="family">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+               <img src="images/family/WhatsApp Image 2026-04-23 at 2.21.33 PM (1).jpeg" alt="Family Photo 2" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="family">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/family/WhatsApp Image 2026-04-23 at 2.21.34 PM.jpeg" alt="Family Photo 3" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="family">
+            <div class="gallery-placeholder h-short" style="padding:0; overflow:hidden;">
+              <img src="images/family/WhatsApp Image 2026-04-24 at 2.27.40 AM.jpeg" alt="Family Photo 4" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="family">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/family/WhatsApp Image 2026-04-24 at 2.27.41 AM.jpeg" alt="Family Photo 5" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+
+          <!-- Bhai & Choti Bitti -->
+          <div class="gallery-item polaroid" data-category="bhai-choti-bitti family">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/bhai or didi/WhatsApp Image 2026-04-23 at 2.23.09 PM.jpeg" alt="Bhai and Choti Bitti" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Rakshak aur jaan 🌟</span>
+          </div>
+
+          <!-- Brother -->
+          <div class="gallery-item" data-category="brother">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/brother/WhatsApp Image 2026-04-23 at 2.23.08 PM.jpeg" alt="Bhaiya Solo 1" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="brother">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/brother/WhatsApp Image 2026-04-23 at 2.23.10 PM.jpeg" alt="Bhaiya Solo 2" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          
+          <!-- Baby -->
+          <div class="gallery-item polaroid" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.55 PM.jpeg" alt="Baby Solo 1" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Pari 🌸</span>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.56 PM.jpeg" alt="Baby Solo 2" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item polaroid" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.57 PM (1).jpeg" alt="Baby Khushi" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Khushi 💕</span>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.57 PM.jpeg" alt="Baby Smile" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.58 PM (1).jpeg" alt="Baby 5" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item polaroid" data-category="baby">
+            <div class="gallery-placeholder h-short" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.58 PM.jpeg" alt="Baby 6" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Muskaan ✨</span>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.59 PM (1).jpeg" alt="Baby 7" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.21.59 PM.jpeg" alt="Baby 8" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.00 PM (1).jpeg" alt="Baby 9" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item polaroid" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.00 PM.jpeg" alt="Baby 10" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">Nazar na lage 🧿</span>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.01 PM (1).jpeg" alt="Baby 11" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-23 at 2.22.01 PM.jpeg" alt="Baby 12" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          
+          <!-- New Baby Photos -->
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.41 AM (1).jpeg" alt="Baby 13" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.41 AM.jpeg" alt="Baby 14" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item polaroid" data-category="baby">
+            <div class="gallery-placeholder h-short" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.42 AM.jpeg" alt="Baby 15" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <span class="polaroid-caption">So Cute 🌟</span>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.43 AM (1).jpeg" alt="Baby 16" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.43 AM.jpeg" alt="Baby 17" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-short" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.44 AM (1).jpeg" alt="Baby 18" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.44 AM (2).jpeg" alt="Baby 19" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.44 AM.jpeg" alt="Baby 20" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-tall" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.45 AM (1).jpeg" alt="Baby 21" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          <div class="gallery-item" data-category="baby">
+            <div class="gallery-placeholder h-medium" style="padding:0; overflow:hidden;">
+              <img src="images/baby/WhatsApp Image 2026-04-24 at 2.27.45 AM (2).jpeg" alt="Baby 22" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- ─── NAV ────────────────────────────────────── -->
+      <div class="nav-buttons" style="padding-bottom:60px;">
+        <a href="page4-ceremony.html" class="nav-btn" data-page="page4-ceremony.html">
+          ← Ceremony details
+        </a>
+        <a href="page6-blessings.html" class="nav-btn primary" data-page="page6-blessings.html">
+          Aashirwad dijiye →
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-om">🌸 ॐ 🌸</div>
+    <p><strong>Arvinanda Maurya</strong> ka Annaprashan Sanskar</p>
+    <p class="footer-shloka">"सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः"</p>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

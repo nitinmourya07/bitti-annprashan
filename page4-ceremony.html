@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annaprashan Vidhi — The Ceremony</title>
+  <meta name="description" content="Annaprashan Sanskar — the sacred Hindu first rice ceremony for Arvinanda Maurya. Learn about the rituals, timeline, and traditions."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+
+  <style>
+    .ceremony-page { min-height: 100vh; }
+
+    .ceremony-hero {
+      text-align: center;
+      padding: 80px 32px 48px;
+      background: linear-gradient(180deg, rgba(139,26,26,0.06) 0%, transparent 50%);
+      position: relative;
+    }
+
+    .ceremony-icon-big {
+      font-size: 56px;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Explanation box */
+    .ceremony-explain {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px;
+      background: var(--ivory);
+      border: 1px solid rgba(200,146,42,0.2);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+
+    .ceremony-explain p {
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* Ritual timeline */
+    .ritual-timeline {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 60px;
+    }
+
+    .ritual-timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--saffron), var(--gold), var(--marigold));
+      border-radius: 2px;
+    }
+
+    .ritual-step {
+      position: relative;
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--ivory);
+      border: 1px solid rgba(200,146,42,0.15);
+      border-radius: var(--radius-md);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .ritual-step:hover {
+      transform: translateX(6px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .ritual-dot {
+      position: absolute;
+      left: -48px;
+      top: 28px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--saffron);
+      border: 4px solid var(--cream);
+      box-shadow: 0 0 0 3px var(--saffron);
+    }
+
+    .ritual-num {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--saffron);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .ritual-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--deep-red);
+      margin-bottom: 6px;
+    }
+
+    .ritual-hindi {
+      font-family: var(--font-hindi);
+      font-size: 16px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .ritual-desc {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* Kheer card */
+    .kheer-card {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 48px 40px;
+      background: linear-gradient(135deg, rgba(240,165,0,0.08), rgba(200,146,42,0.12));
+      border: 2px solid rgba(240,165,0,0.25);
+      border-radius: var(--radius-lg);
+      position: relative;
+    }
+
+    .kheer-icon { font-size: 56px; margin-bottom: 16px; }
+
+    .kheer-card h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--deep-red);
+      margin-bottom: 12px;
+    }
+
+    .kheer-card p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Items grid */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .ceremony-item {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--ivory);
+      border: 1px solid rgba(200,146,42,0.15);
+      border-radius: var(--radius-md);
+      transition: transform var(--transition);
+    }
+
+    .ceremony-item:hover { transform: translateY(-4px); }
+    .ceremony-item .item-icon { font-size: 36px; margin-bottom: 12px; }
+    .ceremony-item .item-name-hi {
+      font-family: var(--font-hindi);
+      font-size: 16px;
+      color: var(--deep-red);
+      font-weight: 700;
+    }
+    .ceremony-item .item-name-en {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Invitation message */
+    .invitation-msg {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(139,26,26,0.04), rgba(200,146,42,0.06));
+      border: 2px dashed rgba(200,146,42,0.3);
+      border-radius: var(--radius-lg);
+    }
+
+    .invitation-msg p {
+      font-family: var(--font-handwritten);
+      font-size: clamp(20px, 3vw, 26px);
+      color: var(--deep-red);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .ceremony-hero { padding: 60px 20px 32px; }
+      .ritual-timeline { padding-left: 50px; }
+      .kheer-card { padding: 32px 24px; }
+      .items-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .items-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader-screen">
+    <div class="loader-om">🍚</div>
+    <div class="loader-text">Puja ki tayyaari...</div>
+  </div>
+
+  <div class="page-transition-overlay"></div>
+
+  <main class="ceremony-page page">
+
+    <!-- ─── HERO ────────────────────────────────────── -->
+    <section class="ceremony-hero">
+      <div class="mandala-bg" style="top:-120px; right:-120px; opacity:0.05;"></div>
+      <div class="ceremony-icon-big reveal">🍚</div>
+      <div class="reveal">
+        <span class="section-label">✦ The Sacred Ritual ✦</span>
+        <h1 class="section-title" style="margin-bottom:8px;">Annaprashan <em>Vidhi</em></h1>
+        <p class="section-subtitle hindi-text" style="font-size:20px;">अन्नप्राशन — पहला अन्न संस्कार</p>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ─── WHAT IS ANNAPRASHAN ─────────────────────── -->
+      <section class="section-padding">
+        <div class="ceremony-explain reveal">
+          <p>
+            <strong>Annaprashan</strong> Hindu dharm ka ek pavitra sanskar hai jisme baby ko pehli baar anna (solid food) khilaya jaata hai. Yeh ceremony baby ke <strong>5th-6th month</strong> mein hoti hai. Is din baby ko kheer ya meetha chaawal khilaya jaata hai — jo uske swasth aur shubh jeevan ki kamna ka pratik hai. 🌾
+          </p>
+        </div>
+      </section>
+
+      <!-- ─── RITUAL STEPS TIMELINE ───────────────────── -->
+      <section class="section-padding">
+        <div class="section-header reveal">
+          <span class="section-label">Step by Step</span>
+          <h2 class="section-title">Ceremony <em>Rituals</em></h2>
+        </div>
+
+        <div class="ritual-timeline">
+          <div class="ritual-step reveal">
+            <div class="ritual-dot"></div>
+            <div class="ritual-num">Step 01</div>
+            <div class="ritual-title">Snan — स्नान</div>
+            <div class="ritual-hindi">शुद्धि स्नान</div>
+            <div class="ritual-desc">Baby ko pavitra jal se snan karate hain — shubh vastra pehnate hain. Ek nayi shuruaat ki tayyaari.</div>
+          </div>
+
+          <div class="ritual-step reveal">
+            <div class="ritual-dot"></div>
+            <div class="ritual-num">Step 02</div>
+            <div class="ritual-title">Puja — पूजा</div>
+            <div class="ritual-hindi">गणेश पूजन एवं हवन</div>
+            <div class="ritual-desc">Pandit ji ke saath puja hoti hai — Ganesh ji ka aahvaan, havan, mantra path. Baby ke swasth jeevan ke liye prarthna.</div>
+          </div>
+
+          <div class="ritual-step reveal">
+            <div class="ritual-dot"></div>
+            <div class="ritual-num">Step 03</div>
+            <div class="ritual-title">Anna Prashan — अन्नप्राशन</div>
+            <div class="ritual-hindi">पहला कौर</div>
+            <div class="ritual-desc">Sabse khaas moment! Baby ko pehli baar kheer ya meethe chaawal khilaye jaate hain — usually Maa ya Nani ke haathon se.</div>
+          </div>
+
+          <div class="ritual-step reveal">
+            <div class="ritual-dot"></div>
+            <div class="ritual-num">Step 04</div>
+            <div class="ritual-title">Aashirwad — आशीर्वाद</div>
+            <div class="ritual-hindi">बड़ों का आशीर्वाद</div>
+            <div class="ritual-desc">Dada-Dadi, Nana-Nani, sab bade apna aashirwad dete hain. Baby ke sar pe haath rakhte hain.</div>
+          </div>
+
+          <div class="ritual-step reveal">
+            <div class="ritual-dot"></div>
+            <div class="ritual-num">Step 05</div>
+            <div class="ritual-title">Bhoj — भोज</div>
+            <div class="ritual-hindi">परिवार का भोजन</div>
+            <div class="ritual-desc">Ceremony ke baad poora parivar saath mein bhojan karta hai — khushi manate hain, mithai batate hain!</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── KHEER CARD ─────────────────────────────── -->
+      <section class="section-padding" style="padding-top:0;">
+        <div class="kheer-card reveal">
+          <div class="kheer-icon">🥣</div>
+          <h3>Pehla Kaur — <em style="color:var(--gold);">Kheer</em></h3>
+          <p>
+            Baby ko pehli baar <strong>meethi kheer</strong> ya <strong>payesh</strong> khilaya jaata hai.<br/>
+            Yeh shubh bhojan ka pratik hai — meetha jeevan, meethi shuruat. 🍚✨<br/>
+            <em>Chandi ke chamach se, maa ke haathon se — pehla kaur baby ke honthon pe!</em>
+          </p>
+        </div>
+      </section>
+
+      <!-- ─── SHLOKA ─────────────────────────────────── -->
+      <section>
+        <div class="shloka-box reveal">
+          <div class="shloka-sanskrit">
+            ॐ अन्नपतये नमः।<br/>
+            अन्नं ब्रह्मेति व्यजानात्।
+          </div>
+          <div class="shloka-meaning">
+            "Om Annapataye Namah — Anna (food) hi Brahma hai — food is divine."<br/>
+            Taittiriya Upanishad se — bhojan ki pavitrata ka shloka.
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── CEREMONY ITEMS ─────────────────────────── -->
+      <section class="section-padding">
+        <div class="section-header reveal">
+          <span class="section-label">Sacred Items</span>
+          <h2 class="section-title">Puja <em>Samagri</em></h2>
+        </div>
+
+        <div class="items-grid reveal">
+          <div class="ceremony-item">
+            <div class="item-icon">🥣</div>
+            <div class="item-name-hi">कांसा थाली</div>
+            <div class="item-name-en">Bronze Plate</div>
+          </div>
+          <div class="ceremony-item">
+            <div class="item-icon">🥄</div>
+            <div class="item-name-hi">चाँदी का चम्मच</div>
+            <div class="item-name-en">Silver Spoon</div>
+          </div>
+          <div class="ceremony-item">
+            <div class="item-icon">🌸</div>
+            <div class="item-name-hi">फूल</div>
+            <div class="item-name-en">Flowers</div>
+          </div>
+          <div class="ceremony-item">
+            <div class="item-icon">🪔</div>
+            <div class="item-name-hi">दीया</div>
+            <div class="item-name-en">Oil Lamp</div>
+          </div>
+          <div class="ceremony-item">
+            <div class="item-icon">🍚</div>
+            <div class="item-name-hi">चावल</div>
+            <div class="item-name-en">Rice</div>
+          </div>
+          <div class="ceremony-item">
+            <div class="item-icon">🍯</div>
+            <div class="item-name-hi">शहद</div>
+            <div class="item-name-en">Honey</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── FAMILY INVITATION ──────────────────────── -->
+      <section class="section-padding" style="padding-top:0;">
+        <div class="invitation-msg reveal">
+          <div style="font-size:32px; margin-bottom:16px;">🙏</div>
+          <p>
+            "Aap sab ke aashirwad se humari gudiya badi ho rahi hai. Aaj uske pehle annaprashan pe, aap sabka pyaar aur duayein chahiye. Aashirwad dete rahiye — humari Arvinanda ko. 🌸"
+          </p>
+          <div style="margin-top:16px; font-size:14px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; font-family:var(--font-body);">— Maurya Parivar</div>
+        </div>
+      </section>
+
+      <!-- ─── NAV ────────────────────────────────────── -->
+      <div class="nav-buttons" style="padding-bottom:60px;">
+        <a href="page3-brother.html" class="nav-btn" data-page="page3-brother.html">
+          ← Bhaiya ki kahani
+        </a>
+        <a href="page5-gallery.html" class="nav-btn primary" data-page="page5-gallery.html">
+          Tasveerein dekhein →
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-om">🌸 ॐ 🌸</div>
+    <p><strong>Arvinanda Maurya</strong> ka Annaprashan Sanskar</p>
+    <p class="footer-shloka">"सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः"</p>
+  </footer>
+
+  <script src="js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aashirwad — Blessings Wall</title>
+  <meta name="description" content="Send your blessings and aashirwad to Arvinanda Maurya on her Annaprashan ceremony."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:wght@300;400;600&family=Noto+Serif+Devanagari:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+
+  <style>
+    .blessings-page { min-height: 100vh; }
+
+    .blessings-hero {
+      text-align: center;
+      padding: 80px 32px 48px;
+      background: linear-gradient(180deg, rgba(139,26,26,0.06) 0%, transparent 50%);
+      position: relative;
+    }
+
+    .blessings-big-icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .blessing-count-badge {
+      display: inline-block;
+      background: rgba(200,146,42,0.15);
+      border: 1px solid rgba(200,146,42,0.3);
+      color: var(--deep-red);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 20px;
+      border-radius: var(--radius-full);
+      margin-top: 12px;
+    }
+
+    .blessing-count-badge span {
+      color: var(--saffron);
+      font-weight: 700;
+    }
+
+    /* Form */
+    .bless-form-section {
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .bless-form-box {
+      background: var(--ivory);
+      border: 2px solid rgba(200,146,42,0.25);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bless-form-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--saffron), var(--gold), var(--marigold));
+    }
+
+    .form-group { margin-bottom: 24px; }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--deep-red);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--text);
+      background: var(--cream);
+      border: 2px solid rgba(200,146,42,0.2);
+      border-radius: var(--radius-sm);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(200,146,42,0.1);
+    }
+
+    textarea.form-input {
+      min-height: 120px;
+      resize: vertical;
+      font-family: var(--font-handwritten);
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .bless-submit-btn {
+      width: 100%;
+      padding: 16px;
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(212,98,42,0.3);
+    }
+
+    .bless-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212,98,42,0.4);
+    }
+
+    .bless-submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Diya Wall */
+    .diya-wall-section {
+      padding: 60px 0;
+    }
+
+    #diya-wall {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .blessing-diya {
+      width: 140px;
+      text-align: center;
+      padding: 20px 12px;
+      background: var(--ivory);
+      border: 1px solid rgba(200,146,42,0.2);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition);
+      animation: fade-in-up 0.6s ease both;
+      position: relative;
+    }
+
+    .blessing-diya:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 28px rgba(255,165,0,0.2);
+      border-color: var(--gold);
+    }
+
+    .blessing-diya.special {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(200,146,42,0.08), rgba(255,213,128,0.12));
+      box-shadow: 0 0 20px rgba(255,213,128,0.15);
+    }
+
+    .bd-flame-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .bd-base {
+      width: 36px;
+      height: 12px;
+      background: linear-gradient(to bottom, #C8922A, #8B6914);
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      margin: 0 auto 12px;
+      position: relative;
+    }
+
+    .bd-base::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: -3px; right: -3px;
+      height: 4px;
+      background: linear-gradient(to bottom, #e0a832, #C8922A);
+      border-radius: 50%;
+    }
+
+    .bd-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--deep-red);
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bd-message {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blessing-diya:hover .bd-message {
+      -webkit-line-clamp: unset;
+    }
+
+    /* Diya Actions (Edit/Delete) */
+    .diya-actions {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    
+    .blessing-diya:hover .diya-actions {
+      opacity: 1;
+    }
+
+    .diya-action-btn {
+      background: rgba(200,146,42,0.1);
+      border: 1px solid rgba(200,146,42,0.3);
+      color: var(--deep-red);
+      border-radius: var(--radius-sm);
+      padding: 4px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .diya-action-btn:hover {
+      background: var(--saffron);
+      color: white;
+      border-color: var(--saffron);
+    }
+    
+    .diya-action-btn.delete-btn:hover {
+      background: #d9534f;
+      border-color: #d9534f;
+    }
+
+    /* Sanskrit banner */
+    .sanskrit-banner {
+      text-align: center;
+      padding: 40px 32px;
+      background: linear-gradient(135deg, rgba(139,26,26,0.06), rgba(200,146,42,0.08));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(200,146,42,0.2);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .sanskrit-big {
+      font-family: var(--font-hindi);
+      font-size: clamp(22px, 4vw, 32px);
+      color: var(--deep-red);
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .sanskrit-meaning {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* Share section */
+    .share-section {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 2px solid;
+    }
+
+    .share-btn.whatsapp {
+      background: #25D366;
+      color: white;
+      border-color: #25D366;
+    }
+
+    .share-btn.whatsapp:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+    }
+
+    .share-btn.copy {
+      background: transparent;
+      color: var(--deep-red);
+      border-color: rgba(200,146,42,0.3);
+    }
+
+    .share-btn.copy:hover {
+      background: rgba(200,146,42,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Closing family photo */
+    .closing-section {
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .closing-photo-frame {
+      max-width: 500px;
+      margin: 0 auto 32px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 4px solid var(--gold);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .closing-photo-frame .photo-placeholder {
+      min-height: 280px;
+      border-radius: 0;
+      border: none;
+    }
+
+    .closing-message {
+      font-family: var(--font-handwritten);
+      font-size: clamp(24px, 4vw, 32px);
+      color: var(--deep-red);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .blessings-hero { padding: 60px 20px 32px; }
+      .bless-form-box { padding: 28px 20px; }
+      .blessing-diya { width: 120px; padding: 16px 10px; }
+      #diya-wall { gap: 14px; }
+      .share-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader-screen">
+    <div class="loader-om">💌</div>
+    <div class="loader-text">Aashirwad load ho rahe hain...</div>
+  </div>
+
+  <div class="page-transition-overlay"></div>
+
+  <main class="blessings-page page">
+
+    <!-- ─── HERO ────────────────────────────────────── -->
+    <section class="blessings-hero">
+      <div class="mandala-bg" style="top:-100px; right:-100px; opacity:0.05;"></div>
+      <div class="blessings-big-icon reveal">🪔</div>
+      <div class="reveal">
+        <span class="section-label">✦ Guest Book ✦</span>
+        <h1 class="section-title" style="margin-bottom:8px;">Apna Aashirwad <em>Dijiye</em></h1>
+        <p class="section-subtitle hindi-text" style="font-size:20px;">आशीर्वाद — Blessings Wall</p>
+        <div class="blessing-count-badge">
+          🪔 <span id="blessing-count">0</span> blessings received
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- ─── BLESSING FORM ──────────────────────────── -->
+      <section class="section-padding bless-form-section">
+        <div class="bless-form-box reveal">
+          <form id="blessing-form">
+            <div class="form-group">
+              <label class="form-label" for="bless-name">🙏 Aapka Naam</label>
+              <input type="text" id="bless-name" class="form-input" placeholder="Your Name / आपका नाम" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bless-message">✨ Aashirwad / Blessing</label>
+              <textarea id="bless-message" class="form-input" placeholder="Apni shubhkaamnayein likhiye..." required></textarea>
+            </div>
+            <button type="submit" class="bless-submit-btn">🪔 Aashirwad Bhejein</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ─── SANSKRIT BLESSING ──────────────────────── -->
+      <section class="section-padding" style="padding-top:0;">
+        <div class="sanskrit-banner reveal">
+          <div class="sanskrit-big">
+            आयुष्मान भव।<br/>श्रीमान भव।<br/>विद्यावान भव।
+          </div>
+          <div class="sanskrit-meaning">
+            "May you have a long life. May you be prosperous. May you be blessed with knowledge."
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── DIYA WALL ──────────────────────────────── -->
+      <section class="diya-wall-section">
+        <div class="section-header reveal">
+          <span class="section-label">Diya Wall</span>
+          <h2 class="section-title">Sabke <em>Aashirwad</em></h2>
+          <p class="section-subtitle">Har diya ek pyaara aashirwad hai 🪔</p>
+        </div>
+
+        <div id="diya-wall" class="reveal">
+          <!-- Rendered by JS -->
+        </div>
+      </section>
+
+      <!-- ─── SHARE ──────────────────────────────────── -->
+      <section class="share-section section-padding">
+        <div class="reveal">
+          <h3 style="color:var(--deep-red); margin-bottom:8px;">Share This Website</h3>
+          <p style="color:var(--muted); font-size:15px;">Iss website ko apne family aur friends ke saath share karein!</p>
+          <div class="share-buttons">
+            <button class="share-btn whatsapp" id="share-btn">📱 WhatsApp Share</button>
+            <button class="share-btn copy" id="copy-link-btn">🔗 Copy Link</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── CLOSING FAMILY PHOTO ───────────────────── -->
+      <section class="closing-section">
+
+        <div class="closing-message reveal">
+          With Love,<br/>
+          <strong>Maurya Parivar</strong> ❤️
+        </div>
+      </section>
+
+      <!-- ─── NAV ────────────────────────────────────── -->
+      <div class="nav-buttons" style="padding-bottom:60px;">
+        <a href="page5-gallery.html" class="nav-btn" data-page="page5-gallery.html">
+          ← Gallery dekhein
+        </a>
+        <a href="index.html" class="nav-btn primary" data-page="index.html">
+          🌅 Phir se shuru karein
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-om">🌸 ॐ 🌸</div>
+    <p><strong>Arvinanda Maurya</strong> ka Annaprashan Sanskar</p>
+    <p style="margin-top: 8px; font-size:13px; color:rgba(255,248,231,0.5);">Made with ❤️ for our little princess</p>
+    <p class="footer-shloka">"सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः"</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/blessings.js"></script>
+</body>
+</html>

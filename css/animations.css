@@ -1,0 +1,255 @@
+/* ════════════════════════════════════════════════════════
+   Annaprashan – Animations & Visual Effects
+   ════════════════════════════════════════════════════════ */
+
+/* ─── KEYFRAMES ────────────────────────────────────────── */
+
+/* Petal falling */
+@keyframes petal-fall {
+  0%   { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(720deg) scale(0.6); opacity: 0; }
+}
+
+/* Petal sway – horizontal drift */
+@keyframes petal-sway {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(30px); }
+  75%      { transform: translateX(-30px); }
+}
+
+/* Diya flame flicker */
+@keyframes flame-flicker {
+  0%, 100% { transform: scaleY(1) scaleX(1); opacity: 1; }
+  25%      { transform: scaleY(1.1) scaleX(0.9); opacity: 0.85; }
+  50%      { transform: scaleY(0.95) scaleX(1.05); opacity: 1; }
+  75%      { transform: scaleY(1.08) scaleX(0.95); opacity: 0.9; }
+}
+
+/* Flame glow pulse */
+@keyframes flame-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(255,165,0,0.6)); }
+  50%      { filter: drop-shadow(0 0 18px rgba(255,165,0,0.9)); }
+}
+
+/* Gentle pulse for OM */
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 20px rgba(255,213,128,0.4); }
+  50%      { transform: scale(1.05); text-shadow: 0 0 40px rgba(255,213,128,0.8); }
+}
+
+/* Fade in up */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Scale in */
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Shimmer – gold foil effect */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Float gentle */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* Rotate slow */
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── PETAL RAIN CONTAINER ─────────────────────────────── */
+.petal-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -5vh;
+  width: 18px;
+  height: 18px;
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+  animation: petal-fall linear infinite;
+}
+
+.petal:nth-child(1)  { left: 5%;  background: #F0A500; animation-duration: 8s;  animation-delay: 0s;   width: 14px; height: 14px; }
+.petal:nth-child(2)  { left: 15%; background: #e89730; animation-duration: 11s; animation-delay: 1s;   width: 20px; height: 20px; }
+.petal:nth-child(3)  { left: 25%; background: #D4622A; animation-duration: 9s;  animation-delay: 3s;   width: 16px; height: 16px; }
+.petal:nth-child(4)  { left: 35%; background: #F0A500; animation-duration: 13s; animation-delay: 2s;   width: 12px; height: 12px; }
+.petal:nth-child(5)  { left: 45%; background: #e8a040; animation-duration: 10s; animation-delay: 5s;   width: 22px; height: 22px; }
+.petal:nth-child(6)  { left: 55%; background: #C8922A; animation-duration: 8.5s;animation-delay: 0.5s; width: 15px; height: 15px; }
+.petal:nth-child(7)  { left: 65%; background: #F0A500; animation-duration: 12s; animation-delay: 4s;   width: 18px; height: 18px; }
+.petal:nth-child(8)  { left: 75%; background: #D4622A; animation-duration: 9.5s;animation-delay: 1.5s; width: 13px; height: 13px; }
+.petal:nth-child(9)  { left: 85%; background: #e89730; animation-duration: 11s; animation-delay: 3.5s; width: 17px; height: 17px; }
+.petal:nth-child(10) { left: 92%; background: #F0A500; animation-duration: 10s; animation-delay: 2.5s; width: 20px; height: 20px; }
+.petal:nth-child(11) { left: 10%; background: #C8922A; animation-duration: 14s; animation-delay: 6s;   width: 11px; height: 11px; }
+.petal:nth-child(12) { left: 50%; background: #e8a040; animation-duration: 7.5s;animation-delay: 0.8s; width: 19px; height: 19px; }
+.petal:nth-child(13) { left: 30%; background: #F0A500; animation-duration: 10.5s;animation-delay: 4.5s;width: 14px; height: 14px; }
+.petal:nth-child(14) { left: 70%; background: #D4622A; animation-duration: 9s;  animation-delay: 2s;   width: 16px; height: 16px; }
+.petal:nth-child(15) { left: 40%; background: #C8922A; animation-duration: 12.5s;animation-delay: 5.5s;width: 21px; height: 21px; }
+
+/* ─── DIYA SVG CONTAINER ───────────────────────────────── */
+.diyas-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.diya {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diya-flame {
+  width: 16px;
+  height: 24px;
+  background: radial-gradient(ellipse at center bottom, #FFD700 0%, #FF8C00 50%, transparent 70%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flame-flicker 0.5s ease-in-out infinite, flame-glow 2s ease-in-out infinite;
+  margin-bottom: -4px;
+  position: relative;
+}
+
+.diya-flame::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: linear-gradient(to top, #333, #666);
+  border-radius: 1px;
+}
+
+.diya-base {
+  width: 40px;
+  height: 14px;
+  background: linear-gradient(to bottom, #C8922A, #8B6914);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  position: relative;
+}
+
+.diya-base::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -4px;
+  right: -4px;
+  height: 4px;
+  background: linear-gradient(to bottom, #e0a832, #C8922A);
+  border-radius: 50%;
+}
+
+/* ─── PAGE TRANSITION ──────────────────────────────────── */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, var(--deep-red), #3d0e0e);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.page-transition-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ─── GOLD SHIMMER TEXT ────────────────────────────────── */
+.gold-shimmer {
+  background: linear-gradient(
+    120deg,
+    var(--gold) 0%,
+    var(--light-gold) 25%,
+    var(--gold) 50%,
+    var(--light-gold) 75%,
+    var(--gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── FLOATING ANIMATION UTILITY ───────────────────────── */
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-fade-in { animation: fade-in-up 0.8s ease forwards; }
+
+/* Animation delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* ─── MANDALA WATERMARK ────────────────────────────────── */
+.mandala-bg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid rgba(200, 146, 42, 0.06);
+  box-shadow:
+    inset 0 0 0 30px transparent,
+    inset 0 0 0 32px rgba(200, 146, 42, 0.04),
+    inset 0 0 0 60px transparent,
+    inset 0 0 0 62px rgba(200, 146, 42, 0.03),
+    inset 0 0 0 90px transparent,
+    inset 0 0 0 92px rgba(200, 146, 42, 0.02);
+  animation: rotate-slow 60s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── RANGOLI CORNER ───────────────────────────────────── */
+.rangoli-corner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.rangoli-corner::before {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--gold);
+  border-radius: 0 50% 0 50%;
+}
+
+.rangoli-corner.top-left     { top: 20px;    left: 20px;    transform: rotate(0deg); }
+.rangoli-corner.top-right    { top: 20px;    right: 20px;   transform: rotate(90deg); }
+.rangoli-corner.bottom-left  { bottom: 20px; left: 20px;    transform: rotate(-90deg); }
+.rangoli-corner.bottom-right { bottom: 20px; right: 20px;   transform: rotate(180deg); }
