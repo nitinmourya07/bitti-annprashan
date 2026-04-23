@@ -6,7 +6,7 @@
   'use strict';
 
   // 👇 Yahan apna Supabase URL aur Anon Key daalein 👇
-  const SUPABASE_URL = 'https://aayhohktelrwmunrmjub.supabase.co';
+  const SUPABASE_URL = 'https://aayhohktelrwmunrnjub.supabase.co';
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFheWhvaGt0ZWxyd211bnJuanViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5NjQwNTQsImV4cCI6MjA5MjU0MDA1NH0.T3ZSUGd5EK7sTVOLSwf0jc3x5kwYTleFvTRDBW94UT8';
 
   let supabase = null;
