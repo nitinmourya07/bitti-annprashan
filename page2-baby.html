@@ -172,22 +172,17 @@
     }
 
     @media (max-width: 768px) {
-      .baby-hero {
-        padding: 60px 20px 32px;
-      }
+      .baby-hero { padding: 60px 16px 32px; }
+      .stats-row { gap: 16px; }
+      .stat-item { min-width: 100px; padding: 16px; }
+      .birth-story { padding: 24px 16px; }
+    }
 
-      .stats-row {
-        gap: 16px;
-      }
-
-      .stat-item {
-        min-width: 100px;
-        padding: 16px;
-      }
-
-      .birth-story {
-        padding: 28px 20px;
-      }
+    @media (max-width: 480px) {
+      .birth-story { padding: 20px 16px; }
+      .baby-name-hindi { font-size: 26px; }
+      .stat-item { min-width: 45%; flex: 1; padding: 12px; }
+      .stats-row { gap: 10px; }
     }
   </style>
 </head>

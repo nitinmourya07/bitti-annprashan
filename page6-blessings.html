@@ -361,11 +361,17 @@
     }
 
     @media (max-width: 768px) {
-      .blessings-hero { padding: 60px 20px 32px; }
-      .bless-form-box { padding: 28px 20px; }
+      .blessings-hero { padding: 60px 16px 32px; }
+      .bless-form-box { padding: 24px 16px; }
       .blessing-diya { width: 120px; padding: 16px 10px; }
       #diya-wall { gap: 14px; }
-      .share-buttons { flex-direction: column; align-items: center; }
+      .share-buttons { flex-direction: column; align-items: center; width: 100%; }
+      .share-btn { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .blessing-diya { width: calc(50% - 7px); padding: 12px 8px; }
+      .sanskrit-banner { padding: 24px 16px; }
+      .sanskrit-big { font-size: 20px; }
     }
   </style>
 </head>

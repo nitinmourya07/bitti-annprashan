@@ -66,9 +66,9 @@ a:hover { color: var(--deep-red); }
 
 /* ─── TYPOGRAPHY ───────────────────────────────────────── */
 h1, h2, h3, h4 { font-family: var(--font-display); color: var(--deep-red); line-height: 1.2; }
-h1 { font-size: clamp(36px, 7vw, 72px); font-weight: 700; }
-h2 { font-size: clamp(28px, 5vw, 48px); font-weight: 700; }
-h3 { font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; }
+h1 { font-size: clamp(32px, 7vw, 72px); font-weight: 700; }
+h2 { font-size: clamp(26px, 5vw, 48px); font-weight: 700; }
+h3 { font-size: clamp(20px, 3.5vw, 32px); font-weight: 700; }
 h4 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; }
 
 .hindi-text { font-family: var(--font-hindi); }
@@ -496,7 +496,7 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; }
   .section-padding { padding: 56px 0; }
   .nav-buttons { flex-direction: column; gap: 16px; }
   .nav-btn { width: 100%; justify-content: center; }
-  .page-dots { right: 12px; }
+  .page-dots { right: 8px; }
   .page-dots a { width: 10px; height: 10px; }
   .page-dots a .tooltip { display: none; }
   .photo-circle { width: 180px; height: 180px; }
@@ -507,11 +507,14 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; }
   body { font-size: 15px; }
   .container { padding: 0 16px; }
   .section-padding { padding: 40px 0; }
-  .photo-circle { width: 150px; height: 150px; }
+  .photo-circle { width: 140px; height: 140px; }
   .nav-btn { padding: 12px 24px; font-size: 15px; }
   .nav-btn.primary { padding: 14px 28px; font-size: 16px; }
-  .shloka-box { padding: 24px; }
+  .shloka-box { padding: 20px 16px; margin: 24px 0; }
   .section-header { margin-bottom: 32px; }
+  .speech-bubble { padding: 16px 20px; font-size: 16px; }
+  .ornament-box { padding: 16px; }
+  .card { padding: 20px 16px; }
 }
 
 /* ─── GLOBAL AUDIO BUTTON ──────────────────────────────── */
