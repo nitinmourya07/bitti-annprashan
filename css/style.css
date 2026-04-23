@@ -42,6 +42,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -52,6 +54,9 @@ body {
   font-size: 17px;
   line-height: 1.7;
   overflow-x: hidden;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -503,6 +508,10 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; }
   .container { padding: 0 16px; }
   .section-padding { padding: 40px 0; }
   .photo-circle { width: 150px; height: 150px; }
+  .nav-btn { padding: 12px 24px; font-size: 15px; }
+  .nav-btn.primary { padding: 14px 28px; font-size: 16px; }
+  .shloka-box { padding: 24px; }
+  .section-header { margin-bottom: 32px; }
 }
 
 /* ─── GLOBAL AUDIO BUTTON ──────────────────────────────── */
