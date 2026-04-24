@@ -144,7 +144,7 @@
       padding: 60px 0;
     }
 
-    .parents-grid {
+     .parents-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 32px;
@@ -152,9 +152,10 @@
       margin: 0 auto;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .parents-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
     }
 
@@ -163,7 +164,11 @@
     }
 
     .parent-message .speech-bubble {
-      height: 100%;
+      height: auto;
+    }
+
+    .parent-message .speech-label {
+      margin-top: 24px;
     }
 
     /* Navigation */
@@ -172,17 +177,11 @@
     }
 
     @media (max-width: 768px) {
-      .baby-hero { padding: 60px 16px 32px; }
+      .baby-hero { padding: 60px 20px 32px; }
       .stats-row { gap: 16px; }
-      .stat-item { min-width: 100px; padding: 16px; }
-      .birth-story { padding: 24px 16px; }
-    }
-
-    @media (max-width: 480px) {
-      .birth-story { padding: 20px 16px; }
-      .baby-name-hindi { font-size: 26px; }
-      .stat-item { min-width: 45%; flex: 1; padding: 12px; }
-      .stats-row { gap: 10px; }
+      .stat-item { min-width: 100px; padding: 14px; }
+      .birth-story { padding: 24px 20px; }
+      .birth-story p { font-size: 16px; }
     }
   </style>
 </head>
