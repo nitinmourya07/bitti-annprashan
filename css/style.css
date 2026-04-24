@@ -496,9 +496,7 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); font-weight: 600; }
   .section-padding { padding: 56px 0; }
   .nav-buttons { flex-direction: column; gap: 16px; }
   .nav-btn { width: 100%; justify-content: center; }
-  .page-dots { right: 8px; }
-  .page-dots a { width: 10px; height: 10px; }
-  .page-dots a .tooltip { display: none; }
+  .page-dots { display: none; }
   .photo-circle { width: 180px; height: 180px; }
   .ornament-box { padding: 24px; }
 }
